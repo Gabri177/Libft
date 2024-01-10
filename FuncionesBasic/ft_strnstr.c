@@ -35,14 +35,15 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return (0);
 }
 
-
+/*
 int main(void)
 {
 	char str1[] = "Hello whoe";
 	char str2[] = "w";
 	char *str3;
 
-	str3 = ft_strnstr(str1, str2, 5);
+	str3 = ft_strnstr(str1, str2, 10);
 	printf ("\n%s\n", str3);
 }
+*/
 

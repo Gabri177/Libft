@@ -21,7 +21,7 @@ all : $(NAME)
 $(NAME) : $(OFILE)
 	ar rc $@ $^
 %.o : %.c
-	cc -c $(FLAG) $< -I $(HFILE) -o $@
+	gcc -c $(FLAG) $< -I $(HFILE) -o $@
 fclean : clean
 	rm -rf $(NAME)
 re : fclean all
