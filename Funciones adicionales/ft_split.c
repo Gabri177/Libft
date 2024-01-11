@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/11 18:43:57 by yugao             #+#    #+#             */
+/*   Updated: 2024/01/11 18:44:49 by yugao            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	count_sep(char *s, char c)
@@ -14,12 +26,11 @@ int	count_sep(char *s, char c)
 		s ++;
 	}
 	return (num);
-
 }
 
 char	*creStr(char *start, char c)
 {
-	int 	len;
+	int		len;
 	char	*fin;
 
 	len = 0;
@@ -32,7 +43,7 @@ char	*creStr(char *start, char c)
 	return (fin);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**fin;
 	int		len;
@@ -43,7 +54,7 @@ char **ft_split(char const *s, char c)
 	fin = (char **) malloc (sizeof (char *) * (len + 1));
 	if (!fin)
 		return (0);
-	while(i < len)
+	while (i < len)
 	{
 		while (*s == c)
 			s ++;
@@ -57,27 +68,27 @@ char **ft_split(char const *s, char c)
 
 /*
 int main() {
-    char const *input_string = "   This is a test string to split   ";
-    char delimiter = 't';
-    
-    // 使用 ft_split 函数拆分字符串
-    char **result = ft_split(input_string, delimiter);
+	char const *input_string = "   This is a test string to split   ";
+	char delimiter = 't';
+	
+	// 使用 ft_split 函数拆分字符串
+	char **result = ft_split(input_string, delimiter);
 
-    if (result) {
-        // 遍历并打印拆分后的字符串数组
-        for (int i = 0; result[i] != NULL; i++) {
-            printf("Token %d: %s\n", i, result[i]);
-        }
+	if (result) {
+		// 遍历并打印拆分后的字符串数组
+		for (int i = 0; result[i] != NULL; i++) {
+			printf("Token %d: %s\n", i, result[i]);
+		}
 
-        // 释放分配的内存
-        for (int i = 0; result[i] != NULL; i++) {
-            free(result[i]);
-        }
-        free(result);
-    } else {
-        printf("Memory allocation failed.\n");
-    }
+		// 释放分配的内存
+		for (int i = 0; result[i] != NULL; i++) {
+			free(result[i]);
+		}
+		free(result);
+	} else {
+		printf("Memory allocation failed.\n");
+	}
 
-    return 0;
+	return 0;
 }
 */

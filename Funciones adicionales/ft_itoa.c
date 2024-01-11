@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/11 18:40:37 by yugao             #+#    #+#             */
+/*   Updated: 2024/01/11 18:41:05 by yugao            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 long	rev_num(long n)
@@ -10,7 +22,7 @@ long	rev_num(long n)
 
 int	count_len(int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n == 0)
@@ -23,7 +35,7 @@ int	count_len(int n)
 	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*fin;
 	int		len;
@@ -45,7 +57,7 @@ char *ft_itoa(int n)
 		fin[len - 1] = rev_num (n % 10) + '0';
 		len --;
 		n = rev_num (n / 10);
-	}	
+	}
 	if (len - 1 == 0)
 		fin[len - 1] = '-';
 	return (fin);
