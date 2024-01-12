@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:43:57 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 01:31:43 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 15:30:26 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	count_sep(char *s, char c)
 	int	num;
 
 	num = 0;
+	if (c == '\0')
+		return (1);
 	while (*s == c)
 		s ++;
 	while (*s)
@@ -68,8 +70,8 @@ char	**ft_split(char const *s, char c)
 
 /*
 int main() {
-	char const *input_string = "   This is a test string to split   ";
-	char delimiter = 't';
+	char const *input_string = "213141\0aa\0bbb";
+	char delimiter = '1';
 	
 	// 使用 ft_split 函数拆分字符串
 	char **result = ft_split(input_string, delimiter);

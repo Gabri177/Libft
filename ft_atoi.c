@@ -6,11 +6,12 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:48:03 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 04:18:51 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 15:33:13 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 int	ft_isspace(int c)
 {
@@ -50,9 +51,9 @@ int	ft_atoi(const char *str)
 /*
 int	main(void)
 {
-	char str[] = "           +464659z99";
-	int i = ft_atoi(str);
-	printf ("%d\n", i);
-	
+	char str[] = "+    1231+  454+++    ";
+
+	printf ("%d\n", ft_atoi(str));
+	printf ("%d\n", atoi(str));
 }
 */
