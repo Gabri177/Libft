@@ -6,7 +6,7 @@
 #    By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 10:01:47 by yugao             #+#    #+#              #
-#    Updated: 2024/01/12 16:40:25 by yugao            ###   ########.fr        #
+#    Updated: 2024/01/12 18:21:25 by yugao            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,6 @@ BONUS_OFILE = $(patsubst $(BONUS_FOLDER)/%.c, $(BONUS_FOLDER)/%.o, $(BONUS_CFILE
 FLAG = -Wall -Wextra -Werror
 NAME = libft.a
 
-ifeq ($(MAKECMDGOALS), bonus)
-	CFILE += $(BONUS_CFILE)
-	OFILE += $(BONUS_OFILE)
-endif
-
 all : $(NAME)
 $(NAME) : $(OFILE)
 	ar rc $@ $^
@@ -32,8 +27,10 @@ $(NAME) : $(OFILE)
 fclean : clean
 	rm -rf $(NAME)
 re : fclean all
-.PHONY : clean
+.PHONY : fclean clean re bonus
 clean :
 	rm -rf $(OFILE)
 	rm -rf $(BONUS_FOLDER)/*.o
-bonus : all
+bonus :
+	$(MAKE) fclean
+	$(MAKE) all CFILE="$(CFILE) $(BONUS_CFILE)" OFILE="$(OFILE) $(BONUS_OFILE)"
