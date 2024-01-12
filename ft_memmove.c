@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:56:43 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 05:10:39 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 13:46:36 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	d = (char *)dest;
 	s = (char *)src;
-	if (!s)
+	if (!dest && !src)
 		return (0);
 	if (d < s)
 		ft_memcpy (d, s, n);

@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:57:15 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 05:03:15 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 13:43:00 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 char	*ft_strchr(const char *str, int c)
 {
 	c %= 256;
-	if (!str)
-		return (0);
 	if (c == '\0')
 		return ((char *)&str[ft_strlen (str)]);
 	while (*str)
