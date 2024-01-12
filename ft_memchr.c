@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:49:30 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 04:13:02 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 17:47:02 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,21 @@ void	*ft_memchr(const void *str, int c, size_t n)
 
 	i = 0;
 	s = (unsigned char *)str;
-	while (i < n && *s)
+	while (i < n)
 	{
-		if (*s == c)
+		if (*s == (unsigned char)c)
 			return (s);
 		i ++;
 		s ++;
 	}
 	return (0);
 }
+
+/*
+int	main(void)
+{
+	int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
+	printf("%s\n", (char *) memchr(tab, -1, 7));
+	printf("%s", (char *)ft_memchr(tab, -1, 7));
+}
+*/
