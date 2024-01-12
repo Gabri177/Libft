@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:43:57 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 15:30:26 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 16:46:13 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	**ft_split(char const *s, char c)
 	fin = (char **) malloc (sizeof (char *) * (len + 1));
 	if (!fin)
 		return (0);
-	while (i < len)
+	while (i < len && *s)
 	{
 		while (*s == c)
 			s ++;
@@ -70,8 +70,9 @@ char	**ft_split(char const *s, char c)
 
 /*
 int main() {
-	char const *input_string = "213141\0aa\0bbb";
-	char delimiter = '1';
+	char const *input_string = "46546545\0aa\0bbb";
+	char delimiter = '5';
+	char t[] = "\0aa\0bbb";
 	
 	// 使用 ft_split 函数拆分字符串
 	char **result = ft_split(input_string, delimiter);
@@ -90,7 +91,6 @@ int main() {
 	} else {
 		printf("Memory allocation failed.\n");
 	}
-
 	return 0;
 }
 */

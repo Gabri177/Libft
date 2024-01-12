@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:48:03 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 15:33:13 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 16:52:18 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int	ft_atoi(const char *str)
 	int	i;
 	int	sign;
 
-	if (str == 0)
-		return (0);
 	result = 0;
 	i = 0;
 	sign = 1;
