@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 18:55:52 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/11 18:56:19 by yugao            ###   ########.fr       */
+/*   Created: 2024/01/11 19:03:43 by yugao             #+#    #+#             */
+/*   Updated: 2024/01/12 02:05:53 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+char	*ft_strrchr(const char *str, int c)
 {
-	const char	*p1;
-	const char	*p2;
-	size_t		i;
+	size_t	len;
 
-	i = 0;
-	p1 = (char *)ptr1;
-	p2 = (char *)ptr2;
-	while (i < n && p1[i] && p2[i])
+	len = ft_strlen (str);
+	if (c == '\0')
+		return ((char *)&str[len]);
+	while (len > 0)
 	{
-		if (p1[i] == p2[i])
-			i ++;
-		else
+		if (str[len] == c)
 			break ;
+		len --;
 	}
-	return (p2[i] - p1[i]);
+	if (str[len] == c)
+		return ((char *)&str[len]);
+	else
+		return (0);
 }

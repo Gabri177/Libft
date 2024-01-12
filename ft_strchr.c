@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 18:57:23 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/11 18:57:28 by yugao            ###   ########.fr       */
+/*   Created: 2024/01/11 18:57:15 by yugao             #+#    #+#             */
+/*   Updated: 2024/01/12 05:03:15 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_strchr(const char *str, int c)
 {
-	char	*new;
-	int		len;
-	int		i;
-
-	i = 0;
-	len = ft_strlen ((char *)str);
-	new = (char *) malloc (sizeof (char) * (len + 1));
-	if (!new)
+	c %= 256;
+	if (!str)
 		return (0);
-	while (i++ < len)
-		new[i] = str[i];
-	new[i] = '\0';
-	return (new);
+	if (c == '\0')
+		return ((char *)&str[ft_strlen (str)]);
+	while (*str)
+	{
+		if (*str == c)
+			return ((char *)str);
+		str ++;
+	}
+	return (0);
 }
+
+/*
+int main (void)
+{
+	char test[] = "dddddthis is a test";
+	char c;
+	
+	printf ("re: %s\n", ft_strchr(test, 'i' + 256));
+}
+*/

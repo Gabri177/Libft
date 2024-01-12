@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:43:57 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/11 18:44:49 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 01:31:43 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	count_sep(char *s, char c)
 	return (num);
 }
 
-char	*creStr(char *start, char c)
+char	*crestr(char *start, char c)
 {
 	int		len;
 	char	*fin;
@@ -58,7 +58,7 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s == c)
 			s ++;
-		fin[i++] = creStr ((char *)s, c);
+		fin[i++] = crestr ((char *)s, c);
 		while (*s != c)
 			s ++;
 	}

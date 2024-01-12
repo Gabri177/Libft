@@ -6,13 +6,13 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:45:17 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/11 18:45:27 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 04:14:39 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *strjoin(const char *str1, const char *str2)
+char	*ft_strjoin(const char *str1, const char *str2)
 {
 	size_t	len1;
 	size_t	len2;

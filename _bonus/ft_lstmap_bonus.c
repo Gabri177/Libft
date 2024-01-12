@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 10:31:05 by yugao             #+#    #+#             */
-/*   Updated: 2023/11/13 20:57:47 by yugao            ###   ########.fr       */
+/*   Created: 2024/01/11 18:39:11 by yugao             #+#    #+#             */
+/*   Updated: 2024/01/12 06:36:44 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	index;
+	t_list	*new_list;
+	t_list	*new_nudo;
 
-	index = 0;
-	while ((s1[index] != '\0' || s2[index] != '\0') && index < n)
+	if (!lst || !f || !del)
+		return (NULL);
+	new_list = NULL;
+	while (lst)
 	{
-		if (s1[index] != s2[index])
-			return ((int)(s1[index]) - (int)(s2[index]));
-		index ++;
+		new_nudo = ft_lstnew (f (lst->content));
+		if (!new_nudo)
+		{
+			ft_lstclear (&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back (&new_list, new_nudo);
+		lst = lst->next;
 	}
-	return (0);
+	return (new_list);
 }

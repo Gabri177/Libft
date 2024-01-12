@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 09:46:59 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/11 18:57:54 by yugao            ###   ########.fr       */
+/*   Created: 2024/01/11 18:55:52 by yugao             #+#    #+#             */
+/*   Updated: 2024/01/12 02:01:32 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 {
-	int		count;
-	char	*index;
+	const unsigned char	*p1;
+	const unsigned char	*p2;
+	size_t				i;
 
-	count = 0;
-	index = str;
-	while (*index != '\0')
+	i = 0;
+	p1 = (const unsigned char *)ptr1;
+	p2 = (const unsigned char *)ptr2;
+	while (i < n)
 	{
-		count ++;
-		index ++;
+		if (p1[i] != p2[i])
+			return ((int)(p1[i] - p2[i]));
+		i ++;
 	}
-	return (count);
+	return (0);
 }

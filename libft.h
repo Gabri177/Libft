@@ -6,17 +6,17 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:38:26 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/11 19:18:43 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 04:26:06 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <unistd.h>
 #ifndef LIBFT_H
-
 # define LIBFT_H
+
+# include <stdio.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -41,9 +41,10 @@ char			*ft_strchr(const char *str, int c);
 char			*ft_strdup(const char *str);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
-int				ft_strlen(char *str);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
-char			*ft_strnstr(const char *haystack, const char *needle, size_t len);
+size_t			ft_strlen(const char *str);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
+char			*ft_strnstr(const char *haystack, const char *needle,
+					size_t len);
 char			*ft_strrchr(const char *str, int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
@@ -54,9 +55,9 @@ void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
-char			*strjoin(const char *str1, const char *str2);
+char			*ft_strjoin(const char *str1, const char *str2);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char			*strtrim(const char *str, const char *chars_to_trim);
+char			*ft_strtrim(const char *str, const char *chars_to_trim);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **lst, t_list *new);
@@ -66,6 +67,7 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 
 #endif

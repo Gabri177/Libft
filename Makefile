@@ -6,16 +6,23 @@
 #    By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 10:01:47 by yugao             #+#    #+#              #
-#    Updated: 2023/11/23 22:25:09 by yugao            ###   ########.fr        #
+#    Updated: 2024/01/12 06:38:30 by yugao            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-CFILE = $(wildcard ./FuncionesBasic/*.c)
-OFILE = $(patsubst ./FuncionesBasic/%.c, ./FuncionesBasic/%.o, $(CFILE))
-HFILE = ./FuncionesBasic/
+CFILE = $(wildcard ./*.c)
+OFILE = $(patsubst ./%.c, ./%.o, $(CFILE))
+HFILE = ./
+BONUS_FOLDER = ./_bonus
+BONUS_CFILE = $(wildcard $(BONUS_FOLDER)/*.c)
+BONUS_OFILE = $(patsubst $(BONUS_FOLDER)/%.c, $(BONUS_FOLDER)/%.o, $(BONUS_CFILE))
 FLAG = -Wall -Wextra -Werror
-NAME = ./libft.a
+NAME = libft.a
+
+ifeq ($(MAKECMDGOALS), bonus)
+	CFILE += $(BONUS_CFILE)
+	OFILE += $(BONUS_OFILE)
+endif
 
 all : $(NAME)
 $(NAME) : $(OFILE)
@@ -28,4 +35,5 @@ re : fclean all
 .PHONY : clean
 clean :
 	rm -rf $(OFILE)
-	
+	rm -rf $(BONUS_FOLDER)/*.o
+bonus : all
