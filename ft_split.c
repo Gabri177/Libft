@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:43:57 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 16:46:13 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 17:31:49 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	count_sep(char *s, char c)
 	return (num);
 }
 
-char	*crestr(char *start, char c)
+static char	*crestr(char *start, char c)
 {
 	int		len;
 	char	*fin;
@@ -70,8 +70,8 @@ char	**ft_split(char const *s, char c)
 
 /*
 int main() {
-	char const *input_string = "46546545\0aa\0bbb";
-	char delimiter = '5';
+	char const *input_string = "\0aa\0bbb";
+	char delimiter = '\0';
 	char t[] = "\0aa\0bbb";
 	
 	// 使用 ft_split 函数拆分字符串

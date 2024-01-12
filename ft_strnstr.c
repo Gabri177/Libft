@@ -6,13 +6,13 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:58:16 by yugao             #+#    #+#             */
-/*   Updated: 2024/01/12 13:28:15 by yugao            ###   ########.fr       */
+/*   Updated: 2024/01/12 17:31:20 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strstr(const char *haystack, const char *needle, size_t s)
+size_t	a_strstr(const char *haystack, const char *needle, size_t s)
 {
 	size_t		i;
 	size_t		len;
@@ -23,14 +23,14 @@ size_t	ft_strstr(const char *haystack, const char *needle, size_t s)
 	n = needle;
 	while (*haystack && i < s)
 	{
-		if (!*n)
+		i ++;
+		if (*n == *haystack && !*(n + 1))
 			return (i - len);
 		else if (*n == *haystack)
 			n ++;
 		else
 			n = needle;
 		haystack ++;
-		i ++;
 	}
 	if (s > ft_strlen (haystack))
 		return (s);
@@ -44,10 +44,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	p;
 
 	len_n = ft_strlen ((char *)needle);
-	p = ft_strstr (haystack, needle, len);
+	p = a_strstr (haystack, needle, len);
 	if (!needle || !*needle)
 		return ((char *)&haystack[0]);
-	if ((p + len_n - 1) <= len)
+	if ((p + len_n) <= len)
 		return ((char *)&haystack[p]);
 	else
 		return (0);
@@ -56,10 +56,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 /*
 int main(void)
 {
-	char str1[] = "Hello whoe";
-	char str2[] = "";
+	char str1[] = "123456789";
+	char str2[] = "9";
 
-	printf ("\n%s\n", ft_strnstr("lorem ipsum dolor sit amet", "", 10));
-	printf ("\n%s\n", strnstr("lorem ipsum dolor sit amet", "", 10));
+	printf ("%s\n", ft_strnstr(str1, str2, 9));
+	printf ("%s\n", strnstr(str1, str2, 9));
 }
 */
