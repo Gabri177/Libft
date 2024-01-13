@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	count_sep(char *s, char c)
+static int	count_sep(char *s, char c)
 {
 	int	num;
 
@@ -35,8 +35,10 @@ static char	*crestr(char *start, char c)
 	int		len;
 	char	*fin;
 
+	if (*start == 0)
+		return (0);
 	len = 0;
-	while (start[len] != c)
+	while (start[len] != c && start[len])
 		len ++;
 	fin = (char *) malloc (sizeof (char) * (len + 1));
 	if (!fin)
@@ -45,12 +47,28 @@ static char	*crestr(char *start, char c)
 	return (fin);
 }
 
+static void	*eli_ary(char **s, int num)
+{
+	int	i;
+
+	i = 0;
+	while (i < num)
+	{
+		free (s[i]);
+		i ++;
+	}
+	free(s);
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**fin;
 	int		len;
 	int		i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	len = count_sep ((char *)s, c);
 	fin = (char **) malloc (sizeof (char *) * (len + 1));
@@ -58,10 +76,13 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	while (i < len && *s)
 	{
-		while (*s == c)
+		while (*s == c && *s)
 			s ++;
-		fin[i++] = crestr ((char *)s, c);
-		while (*s != c)
+		if (*s)
+			fin[i++] = crestr ((char *)s, c);
+		if (i > 0 && !fin[i - 1])
+			return (eli_ary (fin, len));
+		while (*s != c && *s)
 			s ++;
 	}
 	fin[i] = 0;
