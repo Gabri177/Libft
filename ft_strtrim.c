@@ -12,25 +12,29 @@
 
 #include "libft.h"
 
+int	ischar(const char c, const char *s)
+{
+	while (*s)
+	{
+		if (*s == c)
+			return (1);
+		s ++;
+	}
+	return (0);
+}
+
 char	*ft_strtrim(const char *str, const char *chars_to_trim)
 {
-	int		hash[257];
 	size_t	len;
 	char	*result;
 
-	ft_memset (hash, 0, 256);
 	if (!str || !chars_to_trim)
 		return (NULL);
-	while (*chars_to_trim)
-	{
-		hash[(int)(*chars_to_trim % 256)] = 1;
-		chars_to_trim ++;
-	}
-	while (hash[(int)(*str % 256)] == 1)
+	while (ischar (*str, chars_to_trim) == 1)
 		str ++;
 	len = ft_strlen ((char *)str);
 	if (len)
-		while (hash[(int)(str[len - 1] % 256)] == 1)
+		while (ischar (str[len - 1], chars_to_trim) == 1)
 			len --;
 	result = (char *) malloc (sizeof (char) * (len + 1));
 	if (!result)
@@ -46,7 +50,7 @@ int main ()
 	char t2[] = " ";
 	char *fin;
 
-	fin = ft_strtrim ("", "");
+	fin = ft_strtrim ("1234543211111", " 12");
 	printf ("---%s---\n", fin);
 	free (fin);
 	return 0;

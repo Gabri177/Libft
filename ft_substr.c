@@ -15,22 +15,31 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*result;
+	size_t	i;
 
+	i = 0;
 	if (!s)
 		return (0);
-	result = (char *) malloc (sizeof (char) * (len + 1));
+	if (start > ft_strlen ((char *)s))
+		return (ft_strdup (""));
+	if (len > ft_strlen((char *)(s + start)))
+		len = ft_strlen((char *)(s + start));
+	result = ft_calloc (len + 1, sizeof (char));
 	if (!result)
 		return (0);
-	if (start >= ft_strlen ((char *)s))
-		return (ft_strdup (""));
-	ft_strlcpy (result, &s[start], len + 1);
+	while (i < len)
+	{
+		result[i] = s[i + start];
+		i ++;
+	}
+	result[i] = '\0';
 	return (result);
 }
 
 /*
 int main() {
 	const char *original = "Hello, World!";
-	unsigned int start = 12;
+	unsigned int start = 1;
 	size_t length = 5;
 
 	char *substring = ft_substr(original, start, length);

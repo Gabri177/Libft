@@ -11,56 +11,38 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-
-size_t	a_strstr(const char *haystack, const char *needle, size_t s)
-{
-	size_t		i;
-	size_t		len;
-	const char	*n;
-
-	len = ft_strlen (needle);
-	i = 0;
-	n = needle;
-	while (*haystack && i < s)
-	{
-		i ++;
-		if (*n == *haystack && !*(n + 1))
-			return (i - len);
-		else if (*n == *haystack)
-			n ++;
-		else
-			n = needle;
-		haystack ++;
-	}
-	if (s > ft_strlen (haystack))
-		return (s);
-	else
-		return (ft_strlen (haystack));
-}
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	len_n;
-	size_t	p;
+	size_t	p1;
+	size_t	p2;
 
-	len_n = ft_strlen ((char *)needle);
-	p = a_strstr (haystack, needle, len);
-	if (!needle || !*needle)
-		return ((char *)&haystack[0]);
-	if ((p + len_n) <= len)
-		return ((char *)&haystack[p]);
-	else
-		return (0);
+	p1 = 0;
+	p2 = 0;
+	if (needle[p1] == 0)
+		return ((char *)haystack);
+	while (haystack[p1] && p1 < len)
+	{
+		while (haystack[p1 + p2] && needle[p2] == haystack[p1 + p2]
+			&& p1 + p2 < len)
+		{
+			p2 ++;
+			if (needle[p2] == 0)
+				return ((char *)(haystack + p1));
+		}
+		p1 ++;
+		p2 = 0;
+	}
+	return (0);
 }
 
 /*
 int main(void)
 {
-	char str1[] = "1";
+	char str1[] = "9";
 	char str2[] = "9";
 
-	printf ("r1:%s\n", ft_strnstr(str1, str2, -1));
-	printf ("r2:%s\n", strnstr(str1, str2, -1));
+	printf ("r1:%s\n", ft_strnstr(str1, str2, 1));
+	printf ("r2:%s\n", strnstr(str1, str2, 1));
 }
 */

@@ -16,11 +16,9 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t			index;
 	unsigned char	*us1;
 	unsigned char	*us2;
 
-	index = 0;
 	if (n == 0)
 		return (0);
 	us1 = (unsigned char *)s1;
