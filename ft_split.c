@@ -35,8 +35,6 @@ static char	*crestr(char *start, char c)
 	int		len;
 	char	*fin;
 
-	if (*start == 0)
-		return (0);
 	len = 0;
 	while (start[len] != c && start[len])
 		len ++;
@@ -54,7 +52,8 @@ static void	*eli_ary(char **s, int num)
 	i = 0;
 	while (i < num)
 	{
-		free (s[i]);
+		if (s[i])
+			free (s[i]);
 		i ++;
 	}
 	free(s);
@@ -91,8 +90,8 @@ char	**ft_split(char const *s, char c)
 
 /*
 int main() {
-	char const *input_string = "\0aa\0bbb";
-	char delimiter = '\0';
+	char const *input_string = "^^^1^^2a,^^^^3^^^^--h^^^^";
+	char delimiter = '^';
 	char t[] = "\0aa\0bbb";
 	
 	// 使用 ft_split 函数拆分字符串
