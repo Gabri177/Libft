@@ -41,7 +41,6 @@ clean :
 
 bonus : $(BONUS_OFILE) $(OFILE)
 	ar rcs $(NAME) $(BONUS_OFILE) $(OFILE)
-	echo $(BONUS_CFILE)
 #	$(MAKE) fclean
 #	$(MAKE) all CFILE="$(CFILE) $(BONUS_CFILE)" OFILE="$(OFILE) $(BONUS_OFILE)"
 .PHONY : fclean clean re bonus
