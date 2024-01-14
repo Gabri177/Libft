@@ -38,9 +38,6 @@ re : fclean all
 clean :
 	rm -rf $(OFILE)
 	rm -rf $(BONUS_OFILE)
-
 bonus : $(BONUS_OFILE) $(OFILE)
 	ar rcs $(NAME) $(BONUS_OFILE) $(OFILE)
-#	$(MAKE) fclean
-#	$(MAKE) all CFILE="$(CFILE) $(BONUS_CFILE)" OFILE="$(OFILE) $(BONUS_OFILE)"
 .PHONY : fclean clean re bonus
