@@ -80,7 +80,7 @@ char	**ft_split(char const *s, char c)
 		if (*s)
 			fin[i++] = crestr ((char *)s, c);
 		if (i > 0 && !fin[i - 1])
-			return (eli_ary (fin, len));
+			return (eli_ary (fin, i - 1));
 		while (*s != c && *s)
 			s ++;
 	}

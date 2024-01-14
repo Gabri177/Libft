@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-long	rev_num(long n)
+static long	rev_num(long n)
 {
 	if (n < 0)
 		return (-n);
@@ -20,7 +20,7 @@ long	rev_num(long n)
 		return (n);
 }
 
-int	count_len(int n)
+static int	count_len(int n)
 {
 	int	len;
 

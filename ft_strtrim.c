@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ischar(const char c, const char *s)
+static int	ischar(const char c, const char *s)
 {
 	while (*s)
 	{
